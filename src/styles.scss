@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/scss/angular-material-theming.scss';
+@import './assets/scss/angular-material-stylings.scss';
+
+html,
+body {
+    height     : 100%;
+    margin     : 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size  : 12px;
+    overflow   : hidden;
+}
+
+a:active {
+    color: #26A69A;
+}
