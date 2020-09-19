@@ -2,7 +2,7 @@
   <mat-card-header>
     <mat-card-title *ngIf="title" class="d-flex">
       {{title}}
-      <a class="btn ml-auto p-0 text-lightning"><i class="fas fa-ellipsis-h"></i></a>
+      <a class="btn ml-auto p-0 text-lightning"><i class="fas fa-sync" (click)="refresh()"></i></a>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content class="dashboard-card-content">

@@ -4,7 +4,7 @@ export const scrollBarConfig = {
     gridBackground: 'transparent',
     gridWidth: '6',
     gridMargin: '2px 2px',
-    barBackground: '#009688',
+    barBackground: '#7960a5',
     barWidth: '4',
     barMargin: '2px 2px'
   };

@@ -1,38 +1,39 @@
 <mat-horizontal-stepper linear #stepper>
   <!-- Step 1 -->
-  <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
-    <form [formGroup]="firstFormGroup">
+  <mat-step [stepControl]="codeForm" [editable]="isEditable">
+    <form [formGroup]="codeForm" style="height: 370px;">
       <ng-template matStepLabel>Paste your code</ng-template>
 
       <mat-form-field appearance="outline" style="width: 100%;">
         <mat-label>Code</mat-label>
-        <textarea matInput style="height: 300px;" formControlName="firstCtrl"></textarea>
+        <textarea matInput style="height: 300px;" formControlName="src"></textarea>
       </mat-form-field>
-
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
     </form>
+
+
+    <div class="float-right">
+      <button mat-button matStepperNext class="btn btn-primary">Next</button>
+    </div>
   </mat-step>
 
   <!-- Step 2 -->
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="argForm" [editable]="isEditable">
+    <form [formGroup]="argForm" style="height: 370px;">
       <ng-template matStepLabel>Program Arguments</ng-template>
 
       <div class="row">
         <mat-label class="label">Source Connection String</mat-label>
-        <mat-form-field appearance="outline" style="font-size: 12px;">
+        <mat-form-field appearance="outline" style="font-size: 12px;" class="w-75">
           <mat-label>Source</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. connection-string" required>
+          <input matInput formControlName="srcString" placeholder="Ex. connection-string" required>
         </mat-form-field>
       </div>
 
       <div class="row">
         <mat-label class="label">Sink Connection String</mat-label>
-        <mat-form-field appearance="outline" style="font-size: 12px;">
+        <mat-form-field appearance="outline" style="font-size: 12px;" class="w-75">
           <mat-label>Sink</mat-label>
-          <input matInput formControlName="secondCtrl" placeholder="Ex. connection-string" required>
+          <input matInput formControlName="sinkString" placeholder="Ex. connection-string" required>
         </mat-form-field>
       </div>
 
@@ -42,43 +43,50 @@
 
 
       <div class="row" style="padding: 10px;">
-        <div class="col-md-5">
-          <mat-slide-toggle formControlName="allowInternet">Allow Internet Access</mat-slide-toggle>
+        <div class="col-md-4">
+          <mat-slide-toggle formControlName="internetAccess">Allow Internet Access</mat-slide-toggle>
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-4">
           <mat-form-field appearance="outline" style="font-size: 12px;">
             <mat-label>Quorum Size</mat-label>
             <input matInput type="number" formControlName="quorum" required>
           </mat-form-field>
         </div>
-      </div>
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <div class="col-md-4">
+          <mat-form-field appearance="outline" style="font-size: 12px;">
+            <mat-label>Output File Prefix</mat-label>
+            <input matInput type="text" formControlName="filePrefix" placeholder="Eg: test (test-)" required>
+            <span matSuffix><b>-</b></span>
+          </mat-form-field>
+        </div>
       </div>
     </form>
+
+    <div class="float-right">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext class="btn btn-primary">Next</button>
+    </div>
   </mat-step>
 
   <!-- Step 3 -->
-  <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
-    <form [formGroup]="secondFormGroup">
+  <mat-step [stepControl]="machineProfileForm" [editable]="isEditable">
+    <form [formGroup]="machineProfileForm" style="height: 370px;">
       <ng-template matStepLabel>Choose a Compute Profile</ng-template>
 
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Compute Profiles</mat-card-title>
           <mat-card-subtitle>Task Execution Profile</mat-card-subtitle>
         </mat-card-header>
 
         <mat-divider></mat-divider>
 
         <mat-card-content>
-          <mat-radio-group>
+          <mat-radio-group formControlName="profile">
             <mat-list>
               <mat-list-item>
-                <mat-radio-button></mat-radio-button>
+                <mat-radio-button value="C2"></mat-radio-button>
                 <mat-icon mat-list-icon>dns</mat-icon>
                 <div mat-line>C2</div>
                 <div mat-line> 1 TB </div>
@@ -86,7 +94,7 @@
               <mat-divider></mat-divider>
 
               <mat-list-item>
-                <mat-radio-button></mat-radio-button>
+                <mat-radio-button value="M2"></mat-radio-button>
                 <mat-icon mat-list-icon>dns</mat-icon>
                 <div mat-line>M2</div>
                 <div mat-line> 256 GB </div>
@@ -94,7 +102,7 @@
               <mat-divider></mat-divider>
 
               <mat-list-item>
-                <mat-radio-button></mat-radio-button>
+                <mat-radio-button value="T2"></mat-radio-button>
                 <mat-icon mat-list-icon>dns</mat-icon>
                 <div mat-line>T2</div>
                 <div mat-line> 32 GB </div>
@@ -103,27 +111,24 @@
           </mat-radio-group>
         </mat-card-content>
       </mat-card>
-
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
     </form>
+
+    <div class="float-right">
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button class="btn btn-primary" (click)="executeCode(stepper)">Submit Job</button>
+    </div>
   </mat-step>
 
   <!-- Step 5 -->
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="executeCode()">Submit</button>
-    </div>
-    <div *ngIf="result">
-      <mat-form-field appearance="outline" style="font-size: 12px; padding-top: 20px; width: 100%;">
-        <mat-label>Output</mat-label>
-        <textarea matInput rows="10" [value]="result" readonly></textarea>
-      </mat-form-field>
+  <mat-step *ngIf="result">
+    <ng-template matStepLabel>Submitted</ng-template>
+    <p style="height: 370px;" class="m-auto">The job has been submitted successfully. <br>
+      For results, please check the sink (<b>{{argForm.value.sinkString}}</b>) for a file with prefix
+      <b>{{this.argForm.value.filePrefix}}</b> <br>
+      Job ID: <b>{{result}}</b>
+    </p>
+    <div class="float-right">
+      <button mat-button class="btn btn-primary" (click)="stepper.reset(); result =null;">Submit Another Job</button>
     </div>
   </mat-step>
 </mat-horizontal-stepper>

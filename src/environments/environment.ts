@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  serverUrl: 'http://localhost:8081'
+  serverUrl: 'http://localhost:9091/maggi/v1/client'
 };
 
 /*

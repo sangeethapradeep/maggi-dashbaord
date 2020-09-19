@@ -21,6 +21,14 @@
     color: #c75858 !important;
 }
 
+.mat-step-icon-content {
+    color: #F3ECE9;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+    color: #7960a5;
+}
+
 .mat-error {
     color: #c75858 !important;
 }
@@ -74,4 +82,15 @@
 
 .mat-card-header-text {
     width: 100%;
+}
+
+.btn-primary {
+    background-color: #AE905C !important;
+    color           : #F3ECE9 !important;
+    border-color    : #AE905C;
+
+    &:hover {
+        background-color: #8b7349 !important;
+        color           : #F3ECE9 !important;
+    }
 }

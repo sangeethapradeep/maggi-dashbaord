@@ -1,3 +1,4 @@
+import { EventService } from './../../services/event.service';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,9 +10,15 @@ export class CardComponent implements OnInit {
 
   @Input() title: string;
 
-  constructor() { }
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
+  }
+
+  refresh() {
+    if (this.title === 'Jobs') {
+      this.eventService.setRefresh();
+    }
   }
 
 }

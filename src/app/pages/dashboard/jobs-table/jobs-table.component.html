@@ -9,34 +9,11 @@
       </tr>
     </thead>
     <tbody class="no-border-x">
-      <tr>
-        <td>1</td>
-        <td class="number">3324-dsjhfjsdhf</td>
-        <td class="text-success">Completed</td>
-        <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td class="number">jksdhkfs-u748</td>
-        <td class="text-success">Completed</td>
-        <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td class="number">igkjkh-234</td>
-        <td class="text-warning">Pending</td>
-        <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td class="number">asd-hjh-34</td>
-        <td class="text-warning">Pending</td>
-        <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td class="number">qweqe-erer-dsd</td>
-        <td class="text-danger">Cancelled</td>
+      <tr *ngFor="let job of jobs; let id = index;">
+        <td>{{id}}</td>
+        <td class="number">{{job.jobId}}</td>
+        <td [ngClass]="{'text-success': job.jobStatus == 'SUCCESS', 'text-danger': job.jobStatus != 'SUCCESS'}">
+          {{job.jobStatus | titlecase}}</td>
         <td class="actions"><a class="icon" href="#"><i class="mdi mdi-plus-circle-o"></i></a></td>
       </tr>
     </tbody>
