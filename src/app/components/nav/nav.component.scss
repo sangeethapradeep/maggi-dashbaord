@@ -1,0 +1,82 @@
+mat-sidenav-content.mat-drawer-content.mat-sidenav-content {
+  max-height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+
+.sidenav {
+  width: 260px;
+}
+
+.profile {
+
+  border-bottom: 1px solid rgba(61, 68, 101, .1);
+
+  .user-picture {
+    width        : 60px;
+    height       : 60px;
+    border-radius: 50%;
+    overflow     : hidden;
+  }
+
+  .profile-details {
+    .name {
+      color      : #3d4465;
+      font-weight: 800;
+    }
+
+    .role {
+      letter-spacing: 1px;
+      font-weight   : 700;
+      color         : #7960a5;
+    }
+  }
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top     : 0;
+  z-index : 1;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+
+.nav-icon {
+  width : 45px;
+  margin: 15px;
+}
+
+.nav-title {
+  font-family   : 'Somatic';
+  color         : #F3ECE9;
+  letter-spacing: 5px;
+}
+
+.mat-list-base .mat-list-item,
+.mat-list-base .mat-list-option {
+  height       : 45px !important;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.mat-list-base .mat-list-item {
+  background   : #ffffff;
+  color        : #7960a5;
+  font-family  : 'Poppins', 'Roboto', sans-serif;
+  border-bottom: 0;
+  font-weight  : 700;
+
+  &:hover {
+    background: #f5f5f9;
+  }
+
+}
+
+.mat-list-base {
+  padding: 0 !important;
+}

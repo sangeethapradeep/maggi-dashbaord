@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+    *ngIf="isHandset$ | async">
+    <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+  </button>
+  <img src="assets/img/maggie.png" class="nav-icon">
+  <span class="nav-title">MAGGI</span>
+  <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class="pt-5 pb-3 profile">
+      <div class="mb-4">
+        <div class="user-picture m-auto">
+          <img alt="" class="img-fluid" src="./assets/img/user.jpg">
+        </div>
+      </div>
+      <div class="profile-details text-center pb-4">
+        <p class="mb-0 text-uppercase name">Arjun SK</p>
+        <small class="text-uppercase role">Rooster(250)</small>
+      </div>
+    </div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" class="text-uppercase">
+        <img src="assets/img/dashboard.png" width="30px" style="margin-right: 10px;">
+        Dashboard
+      </a>
+      <a mat-list-item routerLink="/job-submission" class="text-uppercase">
+        <img src="assets/img/jobsubmission.png" width="25px" style="margin-right: 10px;">
+        Job Submission
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,75 @@
+<div class="grid-container">
+  <h2 class="mb-4 text-muted pl-3">Dashboard </h2>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="150px">
+
+    <!--Strip Card-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols" [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-card>
+        <div style="flex: 1 1 auto; padding: 1.25rem;">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon" style="color: #7960a5;">
+              <i _ngcontent-c4="" aria-hidden="true" class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Revenue</p>
+              <h2 class="card-text text-right">$ 199,099</h2>
+            </div>
+          </div>
+        </div>
+        <div _ngcontent-c4="" class="card-footer d-flex ">
+          <small _ngcontent-c4="" class="text-muted">Since last month</small>
+          <small _ngcontent-c4="" class="text-success ml-auto">
+            <i _ngcontent-c4="" aria-hidden="true" class="fa fa-caret-up"></i> 5,35%
+          </small>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+
+    <!--Strip Card-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols" [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-card>
+        <div style="flex: 1 1 auto; padding: 1.25rem;">
+          <div class="card-innerBody d-flex align-items-center">
+            <div class="card-icon" style="color: #7960a5;">
+              <i _ngcontent-c4="" aria-hidden="true" class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="ml-auto">
+              <p class="card-label text-right text-muted">Orders</p>
+              <h2 class="card-text text-right">2,200</h2>
+            </div>
+          </div>
+        </div>
+        <div _ngcontent-c4="" class="card-footer d-flex ">
+          <small _ngcontent-c4="" class="text-muted">Since last month</small>
+          <small _ngcontent-c4="" class="text-success ml-auto">
+            <i _ngcontent-c4="" aria-hidden="true" class="fa fa-caret-up"></i> 8,66%
+          </small>
+        </div>
+      </app-card>
+    </mat-grid-tile>
+
+    <!--Table-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+      <app-card title="Card 5">
+        <app-jobs-table slimScroll></app-jobs-table>
+      </app-card>
+    </mat-grid-tile>
+
+    <!--CPU Usage-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="CPU Usage">
+        <canvas #canvas id="canvas" height="316" width="634" class="chartjs-render-monitor"
+          style="display: block; height: 211px; width: 423px;">{{chart}}</canvas>
+      </app-card>
+    </mat-grid-tile>
+
+    <!--Memory Usage-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Memory Usage">
+        <canvas #canvas2 id="canvas2" height="316" width="634" class="chartjs-render-monitor"
+          style="display: block; height: 211px; width: 423px;">{{lineChart}}</canvas>
+      </app-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

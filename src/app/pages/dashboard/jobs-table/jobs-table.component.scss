@@ -1,0 +1,35 @@
+:host {
+    overflow-y: auto;
+    max-height: 670px;
+    min-height: 670px;
+}
+
+.table {
+    font-size: 10pt;
+
+    .text {
+        position: relative;
+    }
+
+    .text span {
+        overflow     : hidden;
+        white-space  : nowrap;
+        text-overflow: ellipsis;
+        position     : absolute;
+        width        : 100%;
+    }
+}
+
+.table thead th {
+    border-top   : 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.table td {
+    border-top: 1px solid #f2f3f8;
+}
+
+.text:before {
+    content: '';
+    display: inline-block;
+}

@@ -1,0 +1,34 @@
+@font-face {
+    font-family: 'Somatic';
+    src        : url('../font/Somatic/Somatic-Rounded.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'ProductSansRegular';
+    src        : url('../font/Product-Sans/Product-Sans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'ProductSansBold';
+    src        : url('../font/Product-Sans/Product-Sans-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'ProductSansItalic';
+    src        : url('../font/Product-Sans/Product-Sans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}
+
+@font-face {
+    font-family: 'ProductSansBoldItalic';
+    src        : url('../font/Product-Sans/Product-Sans-Bold-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style : normal;
+}

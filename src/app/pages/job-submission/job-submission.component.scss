@@ -1,0 +1,18 @@
+.label {
+    padding: 15px 20px;
+    width  : 200px;
+}
+
+.divider-with-text {
+    width  : 40%;
+    display: inline-block;
+
+    &+span {
+        padding    : 20px;
+        font-weight: 500;
+    }
+}
+
+.mat-stepper-horizontal {
+    height: calc(100vh - 60px);
+}

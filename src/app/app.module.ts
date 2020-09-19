@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { NgSlimScrollModule, SLIMSCROLL_DEFAULTS } from 'ngx-slimscroll';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardComponent } from './components/card/card.component';
@@ -13,6 +14,7 @@ import { MaterialModule } from './material.module';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { JobsTableComponent } from './pages/dashboard/jobs-table/jobs-table.component';
 import { JobSubmissionComponent } from './pages/job-submission/job-submission.component';
+import { scrollBarConfig } from './util/scroll.constants';
 
 
 @NgModule({
@@ -33,9 +35,15 @@ import { JobSubmissionComponent } from './pages/job-submission/job-submission.co
     BrowserAnimationsModule,
     LayoutModule,
     ChartsModule,
-    MaterialModule
+    MaterialModule,
+    NgSlimScrollModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: SLIMSCROLL_DEFAULTS,
+      useValue: scrollBarConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
