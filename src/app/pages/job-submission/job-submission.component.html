@@ -115,7 +115,7 @@
 
     <div class="float-right">
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button class="btn btn-primary" (click)="executeCode(stepper)">Submit Job</button>
+      <button mat-button class="btn btn-primary" (click)="executeCode(stepper)" [disabled]="!machineProfileForm.valid">Submit Job</button>
     </div>
   </mat-step>
 
@@ -123,8 +123,7 @@
   <mat-step *ngIf="result">
     <ng-template matStepLabel>Submitted</ng-template>
     <p style="height: 370px;" class="m-auto">The job has been submitted successfully. <br>
-      For results, please check the sink (<b>{{argForm.value.sinkString}}</b>) for a file with prefix
-      <b>{{this.argForm.value.filePrefix}}</b> <br>
+      For results, please check the sink. <br> <br>
       Job ID: <b>{{result}}</b>
     </p>
     <div class="float-right">

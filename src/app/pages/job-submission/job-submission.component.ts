@@ -63,6 +63,7 @@ export class JobSubmissionComponent implements OnInit {
     this.jobService.submitJob(request).subscribe(response => {
       this.result = response.id;
       stepper.next();
-    });
+    },
+      () => this.result = null);
   }
 }
