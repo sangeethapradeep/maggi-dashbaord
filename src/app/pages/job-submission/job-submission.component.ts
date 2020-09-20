@@ -39,7 +39,7 @@ export class JobSubmissionComponent implements OnInit {
 
   executeCode(stepper: MatStepper) {
     const jobArg: JobArguments = {
-      outputFilePrefix: this.argForm.value.filePrefix,
+      outputFilePrefix: `${this.argForm.value.filePrefix}-`,
       sinkConnectionString: this.argForm.value.sinkString,
       sourceConnectionString: this.argForm.value.srcString
     };
